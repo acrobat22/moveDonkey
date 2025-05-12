@@ -1,25 +1,14 @@
-import { monkeyGrimp, monkeyWalkG, monkeyWalkD } from "./data.js";
+import { Play } from "./class/Play.js";
 
-let monkey = document.querySelector(".monkey");
-const largeurEcran = screen.width;
-const largeurFenetre = window.innerWidth;
-const ping = false;
+const nbCard = document.querySelector("#nbCard");
+const btnReset = document.querySelector("#btnReset");
+const btnGo = document.querySelector("#btnGo");
 
-playPictures();
+let play = new Play(nbCard, btnReset, btnGo);
 
-function playPictures() {
-    let currentIndex = 0;
-    let pixel = 20;
-    const intervalId = setInterval(() => {
-        pixel += 10;
-        monkey.style.backgroundImage = `url('images/monkeys/arbres/arbre-${currentIndex + 1}.svg')`;
-        currentIndex = (currentIndex + 1) % monkeyGrimp.length;
-    }, 1000);
-    
-    // Pour arrêter plus tard :
-    // clearInterval(intervalId);
-    // ou
-    //setTimeout(() => {
-    //    clearInterval(intervalId);
-    //}, 10000);
-}
+play.initialiser();
+console.log(play);
+
+
+
+

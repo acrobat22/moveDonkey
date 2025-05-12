@@ -5,12 +5,35 @@ body {
     padding: 0px;
 }
 
+img {
+    display: block;
+    width: 100%;
+}
+
+
+
+.monkey-container {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 30vh;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
 .monkey {
+    will-change: transform;
+    position: absolute;
+    left: 0;
+    /* Position de départ à gauche */
     aspect-ratio: 1 / 1;
     background: url('../images/monkeys/arbres/arbre-1.svg');
     background-size: cover;
-    width: 25%;
-    height: auto;
+    padding-bottom: 6%;
+    width: 20%;
+    top: 37%;
+    transform: translateY(-50%);
 }
 
 /*  */
@@ -31,12 +54,23 @@ header {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    background-color: black;
+    background-color: rgb(107, 102, 102);
+
 
     select,
     option,
     button {
-        background-color: #f5c549;
+        background: linear-gradient(45deg,
+                #999 5%,
+                #fff 10%,
+                #ccc 30%,
+                #ddd 50%,
+                #ccc 70%,
+                #fff 80%,
+                #999 95%);
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         padding: 7px;
         margin: 8px;
         border-radius: 7px;
@@ -53,13 +87,32 @@ header {
     grid-template-rows: auto;
     gap: 10px;
     padding: 10px;
-    margin: 10px 12%;
+    /* margin: 10px 12%; */
 
     .flip-card {
         background-color: transparent;
         width: 150px;
         perspective: 1000px;
         aspect-ratio: 3 / 4;
+
+        .metallic {
+            border: none;
+            outline: none;
+            color: #000;
+            background: linear-gradient(45deg,
+                    #999 5%,
+                    #fff 10%,
+                    #ccc 30%,
+                    #ddd 50%,
+                    #ccc 70%,
+                    #fff 80%,
+                    #999 95%);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
     }
 
     .flip-card-inner {
@@ -82,7 +135,6 @@ header {
     }
 
     .flip-card-front {
-        background-color: #bbb;
         img {
             padding-top: 20px;
             width: 100%;
@@ -92,7 +144,8 @@ header {
     }
 
     .flip-card-back {
-        background-color: #f5c549;;
+        background-color: #f5c549;
+        ;
         color: black;
         transform: rotateY(180deg);
 

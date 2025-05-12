@@ -9,56 +9,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/app.js" defer></script>
     <title>Shuffle monky</title>
 </head>
 
 <body>
-    <main class="container">
+    <main class="container" id="sizer">
         <header>
             <img src="./images/logo-220x220.svg" alt="">
         </header>
         <section class="hero">
-            <select name="nbRow" id="nbRow">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-            </select>
-            <button id="btnPlacer">PLACER</button>
-            <button id="btnReset">REINITIALISER</button>
+            <label for="nbCard">Nombres de cartes : <span class="printNb">12</span></label><br>
+            <input name="nbCard" id="nbCard" type="range" min="12" max="34" step="2">
+            <button id="btnGo">GO !</button>
+            <button id="btnReset">REINITIALISER</button>            
         </section>
 
-        <div>
-            <img src="./images/metal.svg" width="100px" height="100px" alt="" srcset="">
-        </div>
-
-        <div class="monkey">
-
-        </div>
+        <!-- <div class="monkey-container">
+            <div class="monkey"></div>
+        </div> -->
 
 
         <!-- Galerie -->
         <div class="galerie">
-            <!-- 1 -->
-            <div class="flip-card">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="./images/logo-220x220.svg" alt="Avatar">
-                    </div>
-                    <div class="flip-card-back">
-                        <img class="smiley" src="./images/monkeys/arbres/arbre-1.svg" alt="smiley">
-                        <p class="nom">Doe</p>
-                        <p class="prenom">John</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
-
     </main>
-
-
 </body>
 
 </html>
