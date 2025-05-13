@@ -15,14 +15,14 @@ export class Play {
         this.btnGo = btnGo;
         // Instanciation de la logique du jeu et de l'interface
         this.logiqueJeu = new LogiqueJeu(nbCard, btnReset, this.monkeys);
-        this.interface = new Visuel(nbCard, btnReset, this.monkeys);
+        //this.interface = new Visuel(nbCard, btnReset, this.monkeys);
     }
 
     /**
      * Initialisation du jeu
      */
     initialiser() {
-        Visuel.makeCard(8); // 12 cards au départ du jeu
+        Visuel.makeCard(12); // 12 cards au départ du jeu
         this.configurerEcouteurs();
     }
 
