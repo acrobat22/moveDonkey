@@ -50,7 +50,6 @@ export class Visuel {
             flipCardInner.appendChild(flipCardBack);
             flipCard.appendChild(flipCardInner);
             galerie.appendChild(flipCard);
-
         }
     }
 

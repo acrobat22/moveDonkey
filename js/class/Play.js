@@ -22,7 +22,7 @@ export class Play {
      * Initialisation du jeu
      */
     initialiser() {
-        Visuel.makeCard(12); // 12 cards au départ du jeu
+        Visuel.makeCard(8); // 12 cards au départ du jeu
         this.configurerEcouteurs();
     }
 
