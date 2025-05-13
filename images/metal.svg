@@ -1,0 +1,42 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Dégradé principal pour l'effet métallique -->
+        <linearGradient id="inoxDegraded" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#E0E0E0" stop-opacity="0.8"/>
+            <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.9"/>
+            <stop offset="50%" stop-color="#E0E0E0" stop-opacity="0.8"/>
+            <stop offset="70%" stop-color="#B0B0B0" stop-opacity="0.7"/>
+            <stop offset="100%" stop-color="#808080" stop-opacity="0.6"/>
+        </linearGradient>
+        
+        <!-- Effet brillance -->
+        <radialGradient id="brillance" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.8)" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Forme avec effet métallique -->
+    <rect x="50" y="50" width="150" height="80" rx="10">
+        <fill url="#inoxDegraded"/>
+        <filter id="reflets">
+            <feGaussianBlur stdDeviation="2"/>
+            <feSpecularLighting surfaceScale="5" specularConstant="1">
+                <fePointLight x="-5000" y="-5000" z="20000"/>
+            </feSpecularLighting>
+        </filter>
+        <fill url="#brillance"/>
+    </rect>
+
+    <!-- Version avec effet de relief -->
+    <rect x="220" y="50" width="120" height="80" rx="40">
+        <fill url="#inoxDegraded"/>
+        <filter id="reflets2">
+            <feGaussianBlur stdDeviation="2"/>
+            <feSpecularLighting surfaceScale="5" specularConstant="1">
+                <fePointLight x="-5000" y="-5000" z="20000"/>
+            </feSpecularLighting>
+        </filter>
+        <fill url="#brillance"/>
+    </rect>
+</svg>
