@@ -1,8 +1,8 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #E8E6E6;
-    margin: 0px;
-    padding: 0px;
+/*RESET*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 img {
@@ -10,14 +10,22 @@ img {
     width: 100%;
 }
 
-
+body {
+    font-family: 'Poppins', sans-serif;
+    /* background-color: #E8E6E6; */
+    background: url(/moveDonkey/images/monkeys/autres/fond-bois.png);
+    /* background-size: cover; */
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}
 
 .monkey-container {
     position: relative;
     overflow: hidden;
     width: 100vw;
     height: 30vh;
-    background: #f0f0f0;
+    background: #c90e0e;
     margin: 0;
     padding: 0;
 }
@@ -28,7 +36,7 @@ img {
     left: 0;
     /* Position de départ à gauche */
     aspect-ratio: 1 / 1;
-    background: url('../images/monkeys/arbres/arbre-1.svg');
+    background: url(/moveDonkey/images/monkeys/arbre-1.svg);
     background-size: cover;
     padding-bottom: 6%;
     width: 20%;
@@ -38,27 +46,39 @@ img {
 
 /*  */
 header {
+    background: linear-gradient(90deg, #750016 0%, #c80028 50%, #750016 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
+    height: 10vh;
 
     img {
-        height: 50px;
-        top: 25px;
+        height: 60px;
+        top: 35px;
     }
 }
 
 .hero {
+    /* background-color: #999999; */
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 10vh;
     padding: 10px;
-    background-color: rgb(107, 102, 102);
+    /* background-color: rgb(182, 66, 66); */
+    background: linear-gradient(45deg,
+            #999999 5%,
+            #fff 10%,
+            #ccc 30%,
+            #ddd 50%,
+            #ccc 70%,
+            #fff 80%,
+            #999 95%);
 
 
-    select,
-    option,
+    /* select,
+    option, */
     button {
         background: linear-gradient(45deg,
                 #999 5%,
@@ -81,91 +101,165 @@ header {
     }
 }
 
-.galerie {
-    display: grid;
+.display-monkey {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+
+    /* Galerie div */
+    .galerie {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        /* display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto;
-    gap: 10px;
-    padding: 10px;
-    /* margin: 10px 12%; */
+    grid-template-rows: auto; */
+        gap: 2%;
+        margin: auto;
+        margin: 2% 4%;
+        width: 70%;
 
-    .flip-card {
-        background-color: transparent;
-        width: 150px;
-        perspective: 1000px;
-        aspect-ratio: 3 / 4;
+        /* justify-content: center; */
+        align-items: center;
 
-        .metallic {
-            border: none;
-            outline: none;
-            color: #000;
-            background: linear-gradient(45deg,
-                    #999 5%,
-                    #fff 10%,
-                    #ccc 30%,
-                    #ddd 50%,
-                    #ccc 70%,
-                    #fff 80%,
-                    #999 95%);
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
+        .flip-card {
+            background-color: transparent;
+            width: 10%;
+            perspective: 1000px;
+            aspect-ratio: 3 / 4;
+            margin-bottom: 2%;
+
+            .metallic {
+                border: none;
+                outline: none;
+                color: #000;
+                background: linear-gradient(45deg,
+                        #999 5%,
+                        #fff 10%,
+                        #ccc 30%,
+                        #ddd 50%,
+                        #ccc 70%,
+                        #fff 80%,
+                        #999 95%);
+                text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+            }
         }
-    }
 
-    .flip-card-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        transition: transform 0.6s;
-        transform-style: preserve-3d;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-
-    .flip-card-front {
-        img {
-            padding-top: 20px;
+        .flip-card-inner {
+            position: relative;
             width: 100%;
-            height: auto;
-            object-fit: cover;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            img {
+                padding-top: 20px;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
+
+        .flip-card-back {
+            background-color: #f5c549;
+            ;
+            color: black;
+            transform: rotateY(180deg);
+
+            .smiley {
+                padding-top: 20px;
+                width: 50%;
+                height: auto;
+            }
+
+            .nom {
+                margin: 0;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+
+            .prenom {
+                margin: 3px;
+                text-transform: capitalize;
+                margin-block-start: 2px;
+                margin-block-end: 2px;
+            }
         }
     }
 
-    .flip-card-back {
-        background-color: #f5c549;
-        ;
-        color: black;
-        transform: rotateY(180deg);
+    /* Drop & drag div */
+    .drag-drop {
+        background: url(/moveDonkey/images/monkeys/autres/fond-carte1.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 100%;
 
-        .smiley {
-            padding-top: 20px;
-            width: 50%;
-            height: auto;
+
+        .contain-first-card {
+
+            display: flex;
+            width: 100%;
+            height: 50%;
+            justify-content: center;
+            align-items: center;
+
+            .first-card {
+                border: 2px solid rgb(255, 255, 255);
+                width: 24%;
+                height: auto;
+                aspect-ratio: 3/4;
+                border-radius: 10%;
+                margin-bottom: 70px;
+            }
+
         }
 
-        .nom {
-            margin: 0;
-            text-transform: uppercase;
-            font-weight: bold;
+        .contain-second-card {
+            display: flex;
+            width: 100%;
+            height: 50%;
+            justify-content: center;
+            align-items: center;
+
+            .second-card {
+                border: 2px solid rgb(255, 255, 255);
+                width: 24%;
+                height: auto;
+                aspect-ratio: 3/4;
+                border-radius: 10%;
+                margin-top: 70px;
+            }
+
         }
 
-        .prenom {
-            margin: 3px;
-            text-transform: capitalize;
-            margin-block-start: 2px;
-            margin-block-end: 2px;
-        }
     }
+
+
 }

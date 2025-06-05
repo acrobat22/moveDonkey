@@ -26,8 +26,8 @@ export class LogiqueJeu {
         printNb.innerHTML = nbChoisi;            
     }
 
-    randomPictures() {
-        let pictures = _shuffle(this.listePictures);
+    // randomPictures() {
+    //     let pictures = _shuffle(this.listePictures);
         
-    }
+    // }
 }
