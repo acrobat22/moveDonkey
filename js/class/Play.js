@@ -36,5 +36,4 @@ export class Play {
         this.btnGo.addEventListener("click", () => Visuel.rotateCardShow());
         this.nbCard.addEventListener("input", (event) => Visuel.findImages(event.target.value, this.monkeys));
     }
-
 }

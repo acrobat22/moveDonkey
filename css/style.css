@@ -13,7 +13,8 @@ img {
 body {
     font-family: 'Poppins', sans-serif;
     /* background-color: #E8E6E6; */
-    background: url(/moveDonkey/images/monkeys/autres/fond-bois.png);
+    /* background: url(/moveDonkey/images/monkeys/autres/fond-bois.png); */
+    background-image: url("../images/monkeys/autres/fond-bois.png");
     /* background-size: cover; */
     margin: 0px;
     padding: 0px;
