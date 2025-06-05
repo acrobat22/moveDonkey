@@ -27,10 +27,6 @@ export class Play {
         this.configurerEcouteurs();
     }
 
-    downLoadMonkeys() {
-        return this.monkeys = monkeys;
-    }
-
     /**
      * Mise en place des écouteurs sur les boutons et le select
      */
