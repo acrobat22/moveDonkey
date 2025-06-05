@@ -1,27 +1,29 @@
+
 export class Visuel {
 
     /**
      * Constructeur de la classe LogiqueJeu
      * @param {HTMLElement} nbCard : range nb card
      * @param {HTMLElement} btnReset : Bouton initaliser
-     * @param {HTMLElement} monkeys : Liste des images
+     * @param {Array} monkeys : Liste des images
      */
     constructor(nbCard, btnReset, monkeys) {
         this.nbCard = nbCard;
         this.btnReset = btnReset;
-        this.monkeys = monkeys;
+        this.monkeys = monkeys
         this.container = document.getElementById('sizer');
-        console.log(this.monkeys[3]);
+        //console.log(this.monkeys[3]);
     }
 
-    static makeCard(nbCardInInput) {
-        // console.log(nbCardInInput);
+    //********************************************* */
+    // Si static impossible de récupèrer les monkeys
+    //********************************************* */
+    makeCard(nbCardInInput) {
         let allCards = document.querySelectorAll(".flip-card");
         for (const card of allCards) {
             card.remove();
         }
-        let pictures = this.findImages();
-        console.log(pictures);
+        let pictures = this.findImages(12, this.monkeys);
         for (let index = 0; index < nbCardInInput; index++) {
             const galerie = document.querySelector(".galerie");
             let flipCard = document.createElement("div");
@@ -62,18 +64,11 @@ export class Visuel {
     /**
      * Méthode qui réinitialise le visuel au click sur le bouton initaliser
      */
-    static reinitialiser() {
-        // for (let j = 0; j < this.monkeys.length; j++) {
-        //     document.querySelector("#place-" + j).classList.toggle('flip');
-        // }
-        // this.btnReset.disabled = true;
-        // setTimeout(() => {
-        //     //this.boutonPlacer.disabled = false;
-        //     //this.numberSelect.disabled = false;
-        // }, 500);
+    reinitialiser() {
+        window.location.reload();
     }
 
-    static rotateCardShow() {
+    rotateCardShow() {
         console.log("show");
         let flipCards = document.querySelectorAll(".flip-card .flip-card-inner");
         /**
@@ -98,7 +93,7 @@ export class Visuel {
         ;
     }
 
-    static rotateCardNoShow() {
+    rotateCardNoShow() {
         console.log("no show");
         let flipCards = document.querySelectorAll(".flip-card .flip-card-inner");
         flipCards.forEach((card, index) => {
@@ -129,54 +124,28 @@ export class Visuel {
     //     }, 500);
     // }
 
-    static findImages(inputCard, images) {
-        console.log(typeof images);
+    findImages(inputCard, images) {
         const btnGo = document.querySelector("#btnGo");
-        btnGo.addEventListener("click", () => {
-            let memoryCard = [];
-            while (memoryCard.length < inputCard / 2) {
-                let newNumber = Math.ceil(Math.random() * images.length) - 1;
-                console.log(newNumber);
-                // console.log(images[newNumber]);
-                if (memoryCard.indexOf(images[newNumber]) == -1) {
-                    memoryCard.push(images[newNumber]);
-                    // console.log(images[newNumber]);
-                }
+        //btnGo.addEventListener("click", () => {
+        let memoryCard = [];
+        while (memoryCard.length < inputCard / 2) {
+            let newNumber = Math.ceil(Math.random() * images.length) - 1;
+            if (memoryCard.indexOf(images[newNumber]) == -1) {
+                memoryCard.push(images[newNumber]);
             }
-            console.log(memoryCard);
+        }
 
-            memoryCard = [...memoryCard, ...memoryCard];
-            console.log(memoryCard);
-            let shuffleCards = _.shuffle(memoryCard);
-             console.log(shuffleCards);
-            return shuffleCards;
-           
-            // let memoryCard = [];
-            // for (let indexOfNameOfImage = 0; indexOfNameOfImage < inputCard / 2; indexOfNameOfImage++) {
-
-
-
-            // while (memoryCard.length < inputCard / 2 ) {
-            //     let indexOfNameOfImage = (Math.floor(Math.random() * images.length) + 1);
-
-            //     console.log(indexOfNameOfImage);
-            //     console.log(inputCard);
-            //     console.log(images[indexOfNameOfImage]);
-            //     (memoryCard.indexOf(indexOfNameOfImage) == -1) ? memoryCard.push(images[indexOfNameOfImage]) : null;
-            //     console.log(memoryCard);
-            // }
-
-            // }
-
-            // let name = images[indexOfNameOfImage];
-            // // imgBack.style.backgroundImage = `url('./images/monkeys/ ${name}`;
-        })
+        memoryCard = [...memoryCard, ...memoryCard];
+        let shuffleCards = _.shuffle(memoryCard);
+        return shuffleCards;
+        //}) 
 
     }
 
-    static dragAndDrop() {
+    dragAndDrop() {
         console.log("cc");
-
     }
+
+
 }
 
