@@ -13,8 +13,7 @@ img {
 body {
     font-family: 'Poppins', sans-serif;
     /* background-color: #E8E6E6; */
-    /* background: url(/moveDonkey/images/monkeys/autres/fond-bois.png); */
-    background-image: url("../images/monkeys/autres/fond-bois.png");
+    background: url("../images/monkeys/autres/fond-bois.png");
     /* background-size: cover; */
     margin: 0px;
     padding: 0px;
@@ -37,7 +36,7 @@ body {
     left: 0;
     /* Position de départ à gauche */
     aspect-ratio: 1 / 1;
-    background: url(/moveDonkey/images/monkeys/arbre-1.svg);
+    background: url("../images/monkeys/arbre-1.svg");
     background-size: cover;
     padding-bottom: 6%;
     width: 20%;
@@ -213,7 +212,7 @@ header {
 
     /* Drop & drag div */
     .drag-drop {
-        background: url(/moveDonkey/images/monkeys/autres/fond-carte1.png);
+        background: url("../images/monkeys/autres/fond-carte1.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
