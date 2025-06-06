@@ -44,12 +44,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
      inkscape:zoom="1.4181818"
-     inkscape:cx="146.66667"
-     inkscape:cy="171.69872"
+     inkscape:cx="148.07692"
+     inkscape:cy="171.34616"
      inkscape:window-width="1152"
-     inkscape:window-height="716"
-     inkscape:window-x="1920"
-     inkscape:window-y="29"
+     inkscape:window-height="687"
+     inkscape:window-x="397"
+     inkscape:window-y="67"
      inkscape:window-maximized="0"
      inkscape:current-layer="g21" />
   <g
@@ -125,15 +125,87 @@
          y="-1538.9423" /></text>
     <text
        xml:space="preserve"
-       style="font-size:83.9541px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:6.99618"
-       x="477.22101"
-       y="-1602.1388"
-       id="text33"
-       transform="scale(0.95556481,-1.0465015)"><tspan
+       style="font-weight:900;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:7.5"
+       x="277.5"
+       y="-1356.1538"
+       id="text1"
+       transform="scale(1,-1)"><tspan
          sodipodi:role="line"
-         id="tspan33"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:6.99618"
-         x="477.22101"
-         y="-1602.1388">SHUFFLE</tspan></text>
+         id="tspan1"
+         style="stroke-width:7.5"
+         x="277.5"
+         y="-1356.1538">S</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:900;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:7.5"
+       x="500.5769"
+       y="-1598.0769"
+       id="text2"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="stroke-width:7.5"
+         x="500.5769"
+         y="-1598.0769">H</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:900;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:7.5"
+       x="801.15381"
+       y="-1791.0577"
+       id="text3"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="stroke-width:7.5"
+         x="801.15381"
+         y="-1791.0577">U</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:900;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:7.5"
+       x="1163.3654"
+       y="-1809.5193"
+       id="text4"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         style="stroke-width:7.5"
+         x="1163.3654"
+         y="-1809.5193">F</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:900;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:7.5"
+       x="1444.5193"
+       y="-1644.7115"
+       id="text5"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="stroke-width:7.5"
+         x="1444.5193"
+         y="-1644.7115">F</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:900;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:7.5"
+       x="1709.0385"
+       y="-1465.7692"
+       id="text6"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="stroke-width:7.5"
+         x="1709.0385"
+         y="-1465.7692">L</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:900;font-size:262.5px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Heavy';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:7.5"
+       x="1804.2308"
+       y="-1142.9807"
+       id="text7"
+       transform="scale(1,-1)"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="stroke-width:7.5"
+         x="1804.2308"
+         y="-1142.9807">E</tspan></text>
   </g>
 </svg>
