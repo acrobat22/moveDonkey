@@ -36,6 +36,8 @@ export class Timer {
       clearInterval(this.countDown);
       this.timerDisplay.style.color = "red";
       openGameOver();
+      // Réactivation bouton reset
+      document.querySelector("#btnReset").disabled = false;
     } else {
       this.timeLeft--;
     }
