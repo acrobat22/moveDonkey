@@ -10,6 +10,6 @@ let play = new Play(nbCard, btnReset, btnGo);
 play.initialiser();
 console.log(play);
 
-// openGameOver();
+//openGameOver();
 
 

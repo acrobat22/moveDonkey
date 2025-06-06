@@ -72,15 +72,6 @@ export class Visuel {
         
         console.log("show");
         let flipCards = document.querySelectorAll(".flip-card .flip-card-inner");
-        /**
-         * Deux forEach sur flipsCards; est-ce nécessaire???
-         */
-        flipCards.forEach((card, index) => {
-            setTimeout(() => {
-                card.style.transform = 'rotateY(180deg)';
-            }, 100 * index);
-            //select.disabled = true;
-        });
         flipCards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.transform = 'rotateY(180deg)';
@@ -91,7 +82,6 @@ export class Visuel {
         btnGo.disabled = true;
         nbCard.disabled = true;
         setTimeout(this.rotateCardNoShow, 2000);
-        ;
     }
 
     rotateCardNoShow() {
