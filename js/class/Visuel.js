@@ -69,6 +69,7 @@ export class Visuel {
     }
 
     rotateCardShow() {
+        
         console.log("show");
         let flipCards = document.querySelectorAll(".flip-card .flip-card-inner");
         /**
