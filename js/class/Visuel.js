@@ -71,8 +71,9 @@ export class Visuel {
     }
 
     rotateCardShow() {
-        this.timer.startTimer();
-        console.log("show");
+        //this.timer.startTimer();
+        this.timer.startCountdown();
+        //console.log("show");
         let flipCards = document.querySelectorAll(".flip-card .flip-card-inner");
         flipCards.forEach((card, index) => {
             setTimeout(() => {
