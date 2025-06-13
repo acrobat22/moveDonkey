@@ -25,7 +25,18 @@
             <input name="nbCard" id="nbCard" type="range" min="8" max="24" step="2">
             <button id="btnGo">GO !</button>
             <button id="btnReset">REINITIALISER</button>
-            <div id="timer">05:00</div>
+            <!-- new timer -->
+            <div class="content-grid-timer hidden">
+                <div class="flip-card-timer">
+                    <span class="top-timer" data-flip="false"></span>
+                    <span class="bottom-timer" data-flip="false"></span>
+                </div>
+                <div class="flip-card-timer">
+                    <span class="top-timer" data-flip="false"></span>
+                    <span class="bottom-timer" data-flip="false"></span>
+                </div>
+            </div>
+            <!-- fin new timer -->
         </section>
 
         <!-- <div class="monkey-container">
@@ -69,7 +80,7 @@
             </div>
         </div>
         <!-- Fin Game over -->
-    </div> <!-- Fin  div popup-overlay-->
+    </div> <!-- Fin popup -->
 </body>
 
 </html>

@@ -1,8 +1,6 @@
 import { Visuel } from "./Visuel.js";
 import { LogiqueJeu } from "./LogiqueJeu.js";
 import { monkeys } from "../data.js";
-import { Timer } from "./Timer.js";
-
 export class Play {
     #monkeys = [];
     /**
@@ -19,7 +17,7 @@ export class Play {
         // Instanciation de la logique du jeu et de l'interface
         this.logiqueJeu = new LogiqueJeu(nbCard, btnReset, this.#monkeys);
         this.interface = new Visuel(nbCard, btnReset, this.#monkeys);
-        this.timer = new Timer();
+        
     }
 
     /**
@@ -28,11 +26,6 @@ export class Play {
     initialiser() {
         this.interface.makeCard(12); // 12 cards au départ du jeu
         this.configurerEcouteurs();
-        this.timer.startTimer();
-        // setTimeout(() => {
-        //     this.timer.stopTimer()
-        // }, "100000");  // milliseconde
-
     }
 
     /**

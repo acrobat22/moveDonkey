@@ -20,6 +20,10 @@ body {
     height: 100vh;
 }
 
+.hidden {
+    display: none;
+}
+
 .monkey-container {
     position: relative;
     overflow: hidden;

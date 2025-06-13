@@ -1,3 +1,4 @@
+import { Timer } from "./Timer.js";
 
 export class Visuel {
 
@@ -12,6 +13,7 @@ export class Visuel {
         this.btnReset = btnReset;
         this.monkeys = monkeys
         this.container = document.getElementById('sizer');
+        this.timer = new Timer();
         //console.log(this.monkeys[3]);
     }
 
@@ -23,7 +25,7 @@ export class Visuel {
         for (const card of allCards) {
             card.remove();
         }
-        let pictures = this.findImages(12, this.monkeys);
+        let pictures = this.findImages(nbCardInInput, this.monkeys);
         for (let index = 0; index < nbCardInInput; index++) {
             const galerie = document.querySelector(".galerie");
             let flipCard = document.createElement("div");
@@ -37,7 +39,7 @@ export class Visuel {
             // 
             let flipCardFront = document.createElement("div");
             flipCardFront.classList.add("flip-card-front", "metallic");
-            flipCardFront.draggable = "true";
+            //flipCardFront.draggable = "true";
             let imgFront = document.createElement("img");
             imgFront.src = "./images/logo-220x220.svg"; // image du dos
             imgFront.alt = "Avatar";
@@ -69,8 +71,9 @@ export class Visuel {
     }
 
     rotateCardShow() {
-        
-        console.log("show");
+        //this.timer.startTimer();
+        this.timer.startCountdown();
+        //console.log("show");
         let flipCards = document.querySelectorAll(".flip-card .flip-card-inner");
         flipCards.forEach((card, index) => {
             setTimeout(() => {
