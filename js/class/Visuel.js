@@ -15,48 +15,37 @@ export class Visuel {
     }
 
     static makeCard(nbCardInInput) {
-        // console.log(nbCardInInput);
         let allCards = document.querySelectorAll(".flip-card");
         for (const card of allCards) {
             card.remove();
         }
-        let pictures = this.findImages();
-        console.log(pictures);
+
         for (let index = 0; index < nbCardInInput; index++) {
             const galerie = document.querySelector(".galerie");
             let flipCard = document.createElement("div");
-            flipCard.classList.add("flip-card", "metallic");
-            flipCard.draggable = "true";
-            // Card Front
-            // Card inner 
+            flipCard.classList.add("flip-card", `metallic${index + 1}`, "dropzone");
             let flipCardInner = document.createElement("div");
             flipCardInner.classList.add("flip-card-inner");
-            // flipCardInner.draggable = "true";
-            // 
+            flipCardInner.draggable = "true";
+            flipCardInner.setAttribute("id", `parent${index + 1}`); 
             let flipCardFront = document.createElement("div");
             flipCardFront.classList.add("flip-card-front", "metallic");
-            flipCardFront.draggable = "true";
             let imgFront = document.createElement("img");
             imgFront.src = "./images/logo-220x220.svg"; // image du dos
             imgFront.alt = "Avatar";
-            // imgFront.draggable = "true";
-            // Card Back
             let flipCardBack = document.createElement("div");
             flipCardBack.classList.add("flip-card-back");
-            let imgBack = document.createElement("img");
-            imgBack.src = `./images/monkeys/${pictures[index]}` // aléatoire
-            imgBack.alt = "carte";
-            imgBack.dataset.card = `toto`; // nom image aléatoire
 
             flipCardFront.appendChild(imgFront);
-            flipCardBack.appendChild(imgBack);
             flipCardInner.appendChild(flipCardFront);
             flipCardInner.appendChild(flipCardBack);
             flipCard.appendChild(flipCardInner);
             galerie.appendChild(flipCard);
+            flipCard.style.pointerEvents = 'none';
         }
+
         this.dragAndDrop();
-        this.findImages();
+        // this.makeImages();
     }
 
     /**
@@ -76,15 +65,7 @@ export class Visuel {
     static rotateCardShow() {
         console.log("show");
         let flipCards = document.querySelectorAll(".flip-card .flip-card-inner");
-        /**
-         * Deux forEach sur flipsCards; est-ce nécessaire???
-         */
-        flipCards.forEach((card, index) => {
-            setTimeout(() => {
-                card.style.transform = 'rotateY(180deg)';
-            }, 100 * index);
-            //select.disabled = true;
-        });
+
         flipCards.forEach((card, index) => {
             setTimeout(() => {
                 card.style.transform = 'rotateY(180deg)';
@@ -117,7 +98,7 @@ export class Visuel {
     //     numberSelect.disabled = true;
 
     //     for (let i = 0; i < XXX/2; i++) {
-    //         let name = findImages();
+    //         let name = makeImages();
     //         this.smiley[i].style.backgroundImage = `url('images/monkeys/ ${name}`;
     //             setTimeout(() => {
     //                 document.querySelector("#place-" + i).classList.toggle('flip');
@@ -129,53 +110,141 @@ export class Visuel {
     //     }, 500);
     // }
 
-    static findImages(inputCard, images) {
-        console.log(typeof images);
+    static makeImages(inputCard, images) {
+        console.log("absence ", inputCard);
+        let flipCards = document.querySelectorAll(".flip-card div");
         const btnGo = document.querySelector("#btnGo");
+
         btnGo.addEventListener("click", () => {
+            flipCards.forEach(card => {
+                card.style.pointerEvents = 'auto';
+            });
+
             let memoryCard = [];
             while (memoryCard.length < inputCard / 2) {
                 let newNumber = Math.ceil(Math.random() * images.length) - 1;
                 console.log(newNumber);
-                // console.log(images[newNumber]);
                 if (memoryCard.indexOf(images[newNumber]) == -1) {
                     memoryCard.push(images[newNumber]);
-                    // console.log(images[newNumber]);
                 }
             }
-            console.log(memoryCard);
 
             memoryCard = [...memoryCard, ...memoryCard];
-            console.log(memoryCard);
             let shuffleCards = _.shuffle(memoryCard);
-             console.log(shuffleCards);
-            return shuffleCards;
-           
-            // let memoryCard = [];
-            // for (let indexOfNameOfImage = 0; indexOfNameOfImage < inputCard / 2; indexOfNameOfImage++) {
 
-
-
-            // while (memoryCard.length < inputCard / 2 ) {
-            //     let indexOfNameOfImage = (Math.floor(Math.random() * images.length) + 1);
-
-            //     console.log(indexOfNameOfImage);
-            //     console.log(inputCard);
-            //     console.log(images[indexOfNameOfImage]);
-            //     (memoryCard.indexOf(indexOfNameOfImage) == -1) ? memoryCard.push(images[indexOfNameOfImage]) : null;
-            //     console.log(memoryCard);
-            // }
-
-            // }
-
-            // let name = images[indexOfNameOfImage];
-            // // imgBack.style.backgroundImage = `url('./images/monkeys/ ${name}`;
+            for (let indexOfNameOfImage = 0; indexOfNameOfImage < inputCard; indexOfNameOfImage++) {
+                let imgBack = document.createElement("img");
+                imgBack.src = `./images/monkeys/${shuffleCards[indexOfNameOfImage]}` // aléatoire
+                imgBack.alt = "carte";
+                imgBack.dataset.card = `singe-${shuffleCards[indexOfNameOfImage]}`; // nom image aléatoire
+                document.querySelectorAll(".flip-card-back")[indexOfNameOfImage].appendChild(imgBack);
+            }
         })
 
     }
 
     static dragAndDrop() {
-        console.log("cc");
+        const draggableDivCards = document.querySelectorAll(".flip-card-inner");
+
+        draggableDivCards.forEach(divCard => {
+            divCard.addEventListener("dragstart", e => {
+                const ghostCard = divCard.cloneNode(true);
+                document.body.appendChild(ghostCard);
+                e.dataTransfer.setData("text", ghostCard.id);
+                // e.target.classList.add("effect");
+                setTimeout(() => document.body.removeChild(ghostCard), 0);
+            })
+
+            divCard.addEventListener("dragend", (e) => {
+                // e.target.classList.remove("effect");
+            })
+        });
+
+        for (const dropZone of document.querySelectorAll(".dropzone")) {
+            dropZone.addEventListener("dragover", e => {
+                e.preventDefault();
+                // dropZone.classList.add("effect");
+            })
+
+            dropZone.addEventListener("dragleave", e => {
+                // dropZone.classList.remove("effect");
+            })
+
+            dropZone.addEventListener("drop", e => {
+                e.preventDefault();
+                const droppedElementId = e.dataTransfer.getData("text/plain");
+                const droppedElement = document.querySelector(`#${droppedElementId}`);
+                dropZone.appendChild(droppedElement);
+                // dropZone.classList.add("effect");
+                console.log(dropZone);
+                setTimeout(() => {
+                    droppedElement.style.transform = 'rotateY(180deg)';
+                }, 1000);
+
+                this.checkWin();
+                console.log("======================================");
+            })
+        }
+
+    }
+
+    static checkWin() {
+        
+        const parentFirst = document.querySelector(".first-card");
+        const childCard1 = document.querySelector(".first-card .flip-card-inner");
+        const firstCard = document.querySelector(".first-card .flip-card-back img");
+        const ParentSecond = document.querySelector(".second-card");
+        const childCard2 = document.querySelector(".second-card .flip-card-inner");
+        const secondCard = document.querySelector(".second-card .flip-card-back img");
+        const restCards = document.querySelectorAll(".flip-card-inner");
+    console.log(firstCard, secondCard);
+        if (firstCard === null || secondCard === null) {
+            return
+        }
+        
+        if (restCards.length > 2) {
+            if (firstCard.dataset.card === secondCard.dataset.card) {
+                console.log("cc winner");
+                console.log(firstCard.dataset.card);
+                 
+                setTimeout(() => {
+                   console.log(childCard1);
+                    childCard1.parentNode.removeChild(childCard1)
+                }, 3000);
+                setTimeout(() => childCard2.parentNode.removeChild(childCard2), 3000);
+                // console.log(childCard1.parentNode, childCard2.parentNode);
+                // console.log(childCard1, childCard2)
+
+            } else {
+                console.log("cc LOOSE");
+                const parentGalerie = document.querySelectorAll(".flip-card");
+                console.log(parentGalerie);
+                // console.log("Taille", parentGalerie[0].childNodes.length);
+                // console.log("class parent", parentGalerie[2].classList[1]);
+                for (let i = 0; i < parentGalerie.length; i++) {
+                    if (parentGalerie[i].childNodes.length === 0) {
+                        console.log("class parent", parentGalerie[i].classList[1]);
+                        console.log(childCard1.id.substring(6));
+                        console.log(childCard2.id.substring(6));
+                        setTimeout(() => document.querySelector(`.metallic${childCard1.id.substring(6)}`).appendChild(childCard1), 4000);
+                        setTimeout(() => document.querySelector(`.metallic${childCard2.id.substring(6)}`).appendChild(childCard2), 4000);
+
+
+
+                    }
+                    setTimeout(() => {
+                        console.log("Rotation")
+                        childCard2.style.transform = 'rotateY(0deg)';
+                        childCard1.style.transform = 'rotateY(0deg)';
+                    }, 4000);
+                }
+            }
+        } else {
+            setTimeout(() => parentFirst.removeChild(childCard1), 3000);
+            setTimeout(() => ParentSecond.removeChild(childCard2), 3000);
+            console.log("YOU WIN")
+        }
+
 
     }
 }

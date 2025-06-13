@@ -162,6 +162,16 @@ header {
             text-align: center;
             transition: transform 0.6s;
             transform-style: preserve-3d;
+            background: linear-gradient(45deg,
+                    #999 5%,
+                    #fff 10%,
+                    #ccc 30%,
+                    #ddd 50%,
+                    #ccc 70%,
+                    #fff 80%,
+                    #999 95%);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         }
 
@@ -183,7 +193,11 @@ header {
             }
         }
 
-        .flip-card-back {
+        
+    }
+
+
+.flip-card-back {
             background-color: #f5c549;
             ;
             color: black;
@@ -208,7 +222,8 @@ header {
                 margin-block-end: 2px;
             }
         }
-    }
+
+
 
     /* Drop & drag div */
     .drag-drop {
@@ -239,6 +254,8 @@ header {
                 margin-bottom: 70px;
             }
 
+
+
         }
 
         .contain-second-card {
@@ -260,6 +277,70 @@ header {
         }
 
     }
+    
+            .first-card .second-card {
+            background-color: transparent;
+            width: 10%;
+            perspective: 1000px;
+            aspect-ratio: 3 / 4;
+            margin-bottom: 2%;
 
+            .metallic {
+                border: none;
+                outline: none;
+                color: #000;
+                background: linear-gradient(45deg,
+                        #999 5%,
+                        #fff 10%,
+                        #ccc 30%,
+                        #ddd 50%,
+                        #ccc 70%,
+                        #fff 80%,
+                        #999 95%);
+                text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+            }
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            background: linear-gradient(45deg,
+                    #999 5%,
+                    #fff 10%,
+                    #ccc 30%,
+                    #ddd 50%,
+                    #ccc 70%,
+                    #fff 80%,
+                    #999 95%);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            img {
+                padding-top: 20px;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+        }
 
 }

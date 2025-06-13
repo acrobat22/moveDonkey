@@ -23,6 +23,7 @@ export class Play {
      */
     initialiser() {
         Visuel.makeCard(12); // 12 cards au départ du jeu
+        // Visuel.makeImages(4, monkeys);
         this.configurerEcouteurs();
     }
 
@@ -34,7 +35,7 @@ export class Play {
         this.nbCard.addEventListener("input", (event) => this.logiqueJeu.majNbCard(event.target.value));
         this.nbCard.addEventListener("input", (event) => Visuel.makeCard(event.target.value));       
         this.btnGo.addEventListener("click", () => Visuel.rotateCardShow());
-        this.nbCard.addEventListener("input", (event) => Visuel.findImages(event.target.value, this.monkeys));
+        this.nbCard.addEventListener("input", (event) => Visuel.makeImages(event.target.value, this.monkeys));
     }
 
 }
