@@ -29,13 +29,14 @@ export class Visuel {
         for (let index = 0; index < nbCardInInput; index++) {
             const galerie = document.querySelector(".galerie");
             let flipCard = document.createElement("div");
-            flipCard.classList.add("flip-card", "metallic");
-            flipCard.draggable = "true";
+            flipCard.classList.add("flip-card", `metallic${index + 1}`, `dropzone`);
+            // flipCard.draggable = "true";
             // Card Front
             // Card inner 
             let flipCardInner = document.createElement("div");
             flipCardInner.classList.add("flip-card-inner");
-            // flipCardInner.draggable = "true";
+            flipCardInner.draggable = "true";
+            flipCardInner.setAttribute("id", `parent${index + 1}`);
             // 
             let flipCardFront = document.createElement("div");
             flipCardFront.classList.add("flip-card-front", "metallic");
@@ -50,7 +51,7 @@ export class Visuel {
             let imgBack = document.createElement("img");
             imgBack.src = `./images/monkeys/${pictures[index]}` // aléatoire
             imgBack.alt = "carte";
-            imgBack.dataset.card = `toto`; // nom image aléatoire
+            imgBack.dataset.card = `singe-${pictures[index]}`; // nom image aléatoire
 
             flipCardFront.appendChild(imgFront);
             flipCardBack.appendChild(imgBack);
@@ -138,6 +139,54 @@ export class Visuel {
 
     dragAndDrop() {
         console.log("cc");
+
+        const draggableDivCards = document.querySelectorAll(".flip-card-inner");
+
+        draggableDivCards.forEach(divCard => {
+            divCard.addEventListener("dragstart", e => {
+                const ghostCard = divCard.cloneNode(true);
+                document.body.appendChild(ghostCard);
+                e.dataTransfer.setData("text", ghostCard.id);
+                // e.target.classList.add("effect");
+                setTimeout(() => document.body.removeChild(ghostCard), 0);
+            })
+
+            divCard.addEventListener("dragend", (e) => {
+                // e.target.classList.remove("effect");
+            })
+        });
+
+        for (const dropZone of document.querySelectorAll(".dropzone")) {
+            dropZone.addEventListener("dragover", e => {
+                e.preventDefault();
+                // dropZone.classList.add("effect");
+            })
+
+            dropZone.addEventListener("dragleave", e => {
+                // dropZone.classList.remove("effect");
+            })
+
+            dropZone.addEventListener("drop", e => {
+                e.preventDefault();
+                const droppedElementId = e.dataTransfer.getData("text/plain");
+                const droppedElement = document.querySelector(`#${droppedElementId}`);
+                dropZone.appendChild(droppedElement);
+                // dropZone.classList.add("effect");
+                console.log(dropZone);
+                setTimeout(() => {
+                    droppedElement.style.transform = 'rotateY(180deg)';
+                }, 1000);
+
+                const firstCard = document.querySelector(".first-card .flip-card-back img");
+                const secondCard = document.querySelector(".second-card .flip-card-back img");
+                if (firstCard === null || secondCard === null) {
+                    return
+                }
+
+                this.checkWin(firstCard, secondCard);
+                console.log("======================================");
+            })
+        }
     }
 
 
