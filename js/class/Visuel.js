@@ -60,18 +60,18 @@ export class Visuel {
             flipCard.appendChild(flipCardInner);
             galerie.appendChild(flipCard);
         }
-        this.dragAndDrop();
         this.findImages();
     }
-
+    
     /**
      * Méthode qui réinitialise le visuel au click sur le bouton initaliser
-     */
-    reinitialiser() {
-        window.location.reload();
+    */
+   reinitialiser() {
+       window.location.reload();
     }
-
+    
     rotateCardShow() {
+        this.dragAndDrop();
         //this.timer.startTimer();
         this.timer.startCountdown();
         //console.log("show");
@@ -179,16 +179,50 @@ export class Visuel {
 
                 const firstCard = document.querySelector(".first-card .flip-card-back img");
                 const secondCard = document.querySelector(".second-card .flip-card-back img");
-                if (firstCard === null || secondCard === null) {
+                if (firstCard !== null && secondCard !== null) {
+                    this.checkWin(firstCard, secondCard);
+                } else {
+                    console.log("Il y a un null", secondCard, firstCard);
                     return
                 }
 
-                this.checkWin(firstCard, secondCard);
                 console.log("======================================");
             })
         }
     }
+    checkWin(firstCard, secondCard) {
 
+        const childCard1 = document.querySelector(".first-card .flip-card-inner");
+        const childCard2 = document.querySelector(".second-card .flip-card-inner");
+        const restCards = document.querySelectorAll(".flip-card-inner");
+
+        if (restCards.length > 2) {
+
+            if (firstCard.dataset.card === secondCard.dataset.card) {
+                setTimeout(() => childCard1.parentNode.removeChild(childCard1), 3000);
+                setTimeout(() => childCard2.parentNode.removeChild(childCard2), 3000);
+                console.log("cc winner");
+            } else {
+                const parentGalerie = document.querySelectorAll(".flip-card");
+                for (let i = 0; i < parentGalerie.length; i++) {
+                    if (parentGalerie[i].childNodes.length === 0) {
+                        setTimeout(() => document.querySelector(`.metallic${childCard1.id.substring(6)}`).appendChild(childCard1), 4000);
+                        setTimeout(() => document.querySelector(`.metallic${childCard2.id.substring(6)}`).appendChild(childCard2), 4000);
+                    }
+                    setTimeout(() => {
+                        childCard2.style.transform = 'rotateY(0deg)';
+                        childCard1.style.transform = 'rotateY(0deg)';
+                    }, 4000);
+                }
+                console.log("cc LOOSE");
+            }
+
+        } else {
+            setTimeout(() => childCard1.parentNode.removeChild(childCard1), 3000);
+            setTimeout(() => childCard2.parentNode.removeChild(childCard2), 3000);
+            console.log("YOU WIN")
+        }
+    }
 
 }
 
