@@ -8,9 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/timer.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="lodash/lodash.min.js" defer></script>
     <script type="module" src="js/app.js" defer></script>
-    <title>Shuffle monky</title>
+    <title>Shuffle monkey</title>
 </head>
 
 <body>
@@ -19,22 +21,84 @@
             <img src="./images/logo-220x220.svg" alt="">
         </header>
         <section class="hero">
-            <label for="nbCard">Nombres de cartes : <span class="printNb">12</span></label><br>
-            <input name="nbCard" id="nbCard" type="range" min="8" max="18" step="2">
+            <label class="lab" for="nbCard">Nombres de cartes : <span class="printNb">12</span></label><br>
+            <input class="nbCard" name="nbCard" id="nbCard" type="range" min="8" max="24" step="2">
             <button id="btnGo">GO !</button>
-            <button id="btnReset">REINITIALISER</button>            
+            <button id="btnReset">REINITIALISER</button>
+            <!-- new timer -->
+            <div class="content-grid-timer hidden">
+                <div class="flip-card-timer">
+                    <span class="top-timer" data-flip="false"></span>
+                    <span class="bottom-timer" data-flip="false"></span>
+                </div>
+                <div class="flip-card-timer">
+                    <span class="top-timer" data-flip="false"></span>
+                    <span class="bottom-timer" data-flip="false"></span>
+                </div>
+            </div>
+            <!-- fin new timer -->
         </section>
 
-        <!-- <div class="monkey-container">
-            <div class="monkey"></div>
-        </div> -->
+
+        <section class="monkey-container">
+            <div class="monkey-1"></div>
+            <div class="monkey-2"></div>
+            <div class="monkey-3"></div>
+            <div class="monkey-4"></div>
+            <div class="monkey-5"></div>
+            <div class="monkey-6"></div>
+            <div class="monkey-7"></div>
+            <div class="monkey-8"></div>
+            <div class="monkey-9"></div>
+        </section>
+
 
 
         <!-- Galerie -->
-        <div class="galerie">
-            
-        </div>
+        <section class="display-monkey">
+            <div class="galerie">
+            </div>
+            <aside class="drag-drop">
+                <div class="contain-first-card">
+                    <div class="first-card dropzone">
+
+                    </div>
+
+                </div>
+                <div class="contain-second-card">
+                    <div class="second-card dropzone">
+
+                    </div>
+
+                </div>
+            </aside>
+        </section>
+
+        <!-- ***** -->
+        <!-- POPUP -->
+        <!-- ***** -->
+
+        <section class="popup-overlay">
+            <!-- Game over -->
+            <div id="gameOver" class="popup-content" style="background: rgba(122, 122, 122, 0.7);">
+                <div class="containerPopup">
+                    <div class="top">
+                        <div class="packages">
+                            <img width="10%" src="./images/game-over.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Game over -->
+        </section> <!-- Fin  div popup-overlay-->
+
+
+
     </main>
+
+
+
+
 </body>
 
 </html>

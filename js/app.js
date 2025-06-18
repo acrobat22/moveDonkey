@@ -7,8 +7,6 @@ const btnGo = document.querySelector("#btnGo");
 let play = new Play(nbCard, btnReset, btnGo);
 
 play.initialiser();
-console.log(play);
-
-
+//console.log(play);
 
 
