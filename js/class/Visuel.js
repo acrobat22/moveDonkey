@@ -59,17 +59,18 @@ export class Visuel {
             flipCardInner.appendChild(flipCardBack);
             flipCard.appendChild(flipCardInner);
             galerie.appendChild(flipCard);
+            flipCard.style.pointerEvents = 'none';
         }
         this.findImages();
     }
-    
+
     /**
      * Méthode qui réinitialise le visuel au click sur le bouton initaliser
     */
-   reinitialiser() {
-       window.location.reload();
+    reinitialiser() {
+        window.location.reload();
     }
-    
+
     rotateCardShow() {
         this.dragAndDrop();
         //this.timer.startTimer();
@@ -120,8 +121,13 @@ export class Visuel {
     // }
 
     findImages(inputCard, images) {
+        let flipCards = document.querySelectorAll(".flip-card div");
         const btnGo = document.querySelector("#btnGo");
-        //btnGo.addEventListener("click", () => {
+        btnGo.addEventListener("click", () => {
+            flipCards.forEach(card => {
+                card.style.pointerEvents = 'auto';
+            });
+        })
         let memoryCard = [];
         while (memoryCard.length < inputCard / 2) {
             let newNumber = Math.ceil(Math.random() * images.length) - 1;
@@ -133,7 +139,7 @@ export class Visuel {
         memoryCard = [...memoryCard, ...memoryCard];
         let shuffleCards = _.shuffle(memoryCard);
         return shuffleCards;
-        //}) 
+
 
     }
 
@@ -144,9 +150,11 @@ export class Visuel {
 
         draggableDivCards.forEach(divCard => {
             divCard.addEventListener("dragstart", e => {
+                divCard.style.opacity = "0.01";
                 const ghostCard = divCard.cloneNode(true);
                 document.body.appendChild(ghostCard);
                 e.dataTransfer.setData("text", ghostCard.id);
+                ghostCard.style.opacity = "1.0";
                 // e.target.classList.add("effect");
                 setTimeout(() => document.body.removeChild(ghostCard), 0);
             })
@@ -172,6 +180,7 @@ export class Visuel {
                 const droppedElement = document.querySelector(`#${droppedElementId}`);
                 dropZone.appendChild(droppedElement);
                 // dropZone.classList.add("effect");
+                droppedElement.style.opacity = "1.0";
                 console.log(dropZone);
                 setTimeout(() => {
                     droppedElement.style.transform = 'rotateY(180deg)';
@@ -195,6 +204,8 @@ export class Visuel {
         const childCard1 = document.querySelector(".first-card .flip-card-inner");
         const childCard2 = document.querySelector(".second-card .flip-card-inner");
         const restCards = document.querySelectorAll(".flip-card-inner");
+        const galerie = document.querySelector(".galerie");
+        const flipCard = document.querySelectorAll(".flip-card");
 
         if (restCards.length > 2) {
 
@@ -221,7 +232,53 @@ export class Visuel {
             setTimeout(() => childCard1.parentNode.removeChild(childCard1), 3000);
             setTimeout(() => childCard2.parentNode.removeChild(childCard2), 3000);
             console.log("YOU WIN")
+
+            for (let i = 0; i < flipCard.length; i++) {
+                galerie.removeChild(flipCard[i]);
+            }
+
+            setTimeout(() => {
+                this.#displayWin(galerie);
+            }, 3000);
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 20500);
+
         }
+    }
+
+    #displayWin(galerie) {
+        galerie.classList.add("dwwm");
+        let winDiv = document.createElement("div");
+        winDiv.classList.add("glasberg");
+        let pWin = document.createElement("p");
+        pWin.innerText = "YOU WIN";
+        let imgAuthor = document.createElement("img");
+        imgAuthor.classList.add("img-win");
+        imgAuthor.src = "https://www.fondationcos.org/sites/default/files/styles/full_527_358/public/2016-07/abbe_plaque.jpg?itok=m6qBYbQ4"; // image du dos
+        imgAuthor.alt = "Alexandre Glasberg";
+        let citeDiv = document.createElement("div");
+        citeDiv.classList.add("cite");
+        let spanCitation = document.createElement("span");
+        spanCitation.classList.add("citation");
+        spanCitation.innerText = `« On échoue par ignorance, par paresse d'esprit, par opportunisme ; on réussit lorsqu'on prend pour point de départ le
+            respect de la personne humaine… »`
+        let signDiv = document.createElement("div");
+        signDiv.classList.add("signature");
+        signDiv.innerText = "Alexandre Glasberg"
+
+        winDiv.appendChild(pWin);
+        winDiv.appendChild(imgAuthor);
+        winDiv.appendChild(citeDiv);
+        citeDiv.appendChild(spanCitation);
+        setTimeout(() => {
+            citeDiv.appendChild(signDiv);
+        }, 11000);
+
+        galerie.appendChild(winDiv);
+
+
     }
 
 }
