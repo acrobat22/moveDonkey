@@ -5,24 +5,40 @@
     box-sizing: border-box;
 }
 
-img {
+:root {
+    /*colors*/
+    --primary: linear-gradient(90deg, #750016 0%, #c80028 50%, #750016 100%);
+    --secondary: #ffffff;
+    --text: #000000;
+
+    /*taille-texte*/
+    --font-size-16: 1rem;
+    /*1rem = 16px*/
+    --font-size-20: 1.25rem;
+    /*1.25rem = 16px (20/16)*/
+    --font-size-24: 1.5rem;
+    /*1.5rem = 16px (24/16)*/
+    --font-size-40: 2.5rem;
+    /*2.5rem = 16px*/
+
+    /*police*/
+    --font-family-main: "Bebas Neue";
+    --font-family-title: "Montserrat";
+}
+
+
+/* ******************************** */
+
+
+/* img {
     display: block;
     width: 100%;
-}
+} */
 
-body {
-    font-family: 'Poppins', sans-serif;
-    /* background-color: #E8E6E6; */
-    background: url("../images/monkeys/autres/fond-bois.png");
-    /* background-size: cover; */
-    margin: 0px;
-    padding: 0px;
-    height: 100vh;
-}
 
-.hidden {
+/* .hidden {
     display: none;
-}
+} */
 
 .monkey-container {
     position: relative;
@@ -48,62 +64,34 @@ body {
     transform: translateY(-50%);
 }
 
-/*  */
-header {
+
+/* header {
     background: linear-gradient(90deg, #750016 0%, #c80028 50%, #750016 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 0.5%;
     height: 10vh;
 
     img {
-        height: 60px;
-        top: 35px;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+
     }
-}
+} */
 
-.hero {
-    /* background-color: #999999; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
-    padding: 10px;
-    /* background-color: rgb(182, 66, 66); */
-    background: linear-gradient(45deg,
-            #999999 5%,
-            #fff 10%,
-            #ccc 30%,
-            #ddd 50%,
-            #ccc 70%,
-            #fff 80%,
-            #999 95%);
-
-
-    /* select,
-    option, */
-    button {
-        background: linear-gradient(45deg,
-                #999 5%,
-                #fff 10%,
-                #ccc 30%,
-                #ddd 50%,
-                #ccc 70%,
-                #fff 80%,
-                #999 95%);
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-        border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        padding: 7px;
-        margin: 8px;
-        border-radius: 7px;
+/* @media only screen and (min-width: 480px) and (max-width: 768px) {
+    header {
+        img {
+            height: 80%;
+            width: 50%;
+        }
     }
 
-    button:disabled {
-        background-color: darkgray;
-    }
-}
+} */
+
 
 .display-monkey {
     display: flex;
@@ -112,25 +100,21 @@ header {
     margin: auto;
     align-items: center;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
+    background: url("../images/monkeys/autres/fond-bois.png");
 
     /* Galerie div */
     .galerie {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
-
-        /* display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto; */
-        gap: 2%;
-        margin: auto;
-        margin: 2% 4%;
-        width: 70%;
-
-        /* justify-content: center; */
+        justify-content: center;
         align-items: center;
+        gap: 2%;
+        padding-left: 1%;
+        padding-top: 2%;
+        padding-right: 1%;
+        width: 70%;
 
         .flip-card {
             background-color: transparent;
@@ -193,28 +177,11 @@ header {
             color: black;
             transform: rotateY(180deg);
 
-            .smiley {
-                padding-top: 20px;
-                width: 50%;
-                height: auto;
-            }
 
-            .nom {
-                margin: 0;
-                text-transform: uppercase;
-                font-weight: bold;
-            }
-
-            .prenom {
-                margin: 3px;
-                text-transform: capitalize;
-                margin-block-start: 2px;
-                margin-block-end: 2px;
-            }
         }
     }
 
-    /* Drop & drag div */
+    /* Drop & drag div
     .drag-drop {
         background: url("../images/monkeys/autres/fond-carte1.png");
         background-size: cover;
@@ -264,102 +231,138 @@ header {
         }
 
     }
-}
+} */
 
 /* --------------------- */
 /*        POPUP          */
 /* --------------------- */
-.open-btn {
-  background-color: #211f1f;
-  border-radius: 50%;
+/* .open-btn {
+    background-color: #211f1f;
+    border-radius: 50%;
 }
 
 .popup-overlay {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background: rgba(122, 122, 122, 0.3);
-  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: rgba(122, 122, 122, 0.3);
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .popup-content {
-  display: flex;
-  background-color: #ebeff3;
-  padding: 10px;
-  width: auto;
-  height: auto;
-  padding-left: 10%;
-  padding-right: 10%;
-  max-width: 80%;
-  border-radius: 50px;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  transform: scaleY(0);
-  opacity: 0;
-  animation: apparPop 0.3s ease-in forwards;
+    display: flex;
+    background-color: #ebeff3;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    max-width: 80%;
+    border-radius: 50px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transform: scaleY(0);
+    opacity: 0;
+    animation: apparPop 0.3s ease-in forwards;
 }
 
 @keyframes apparPop {
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
 }
 
 .button-close-gameOver {
-  position: absolute;
-  color: #4d4e53;
-  cursor: pointer;
-  top: 30px;
-  right: 30px;
-  transition: 0.35s;
+    position: absolute;
+    color: #4d4e53;
+    cursor: pointer;
+    top: 30px;
+    right: 30px;
+    transition: 0.35s;
 }
 
 .top {
-  text-align: center;
-  color: black;
+    text-align: center;
+    color: black;
 }
 
 .button-close-gameOver:hover {
-  transition: 0.35s;
-  color: #989295;
+    transition: 0.35s;
+    color: #989295;
 }
+
 .packages {
-  display: flex;
-  margin: 20px;
-  margin-top: 0;
-  width: auto;
-  flex-direction: column;
-  align-items: center;
-  text-align: justify;
-  gap: 20px;
-  color: #211f1f;
+    display: flex;
+    margin: 20px;
+    margin-top: 0;
+    width: auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    gap: 20px;
+    color: #211f1f;
 
-  h1 {
-    margin-bottom: 4%;
-  }
-
-  h2 {
-    margin: 0;
-  }
-
-  span {
-    color: var(--color-orange);
-    font-weight: bold;
-
-    i {
-      margin-left: 4px;
+    h1 {
+        margin-bottom: 4%;
     }
-  }
+
+    h2 {
+        margin: 0;
+    }
+
+    span {
+        color: var(--color-orange);
+        font-weight: bold;
+
+        i {
+            margin-left: 4px;
+        }
+    }
+} */
+
+
+
+/* section.monkey-container {
+    background: linear-gradient(90deg, #750016 0%, #c80028 50%, #750016 100%);
+    display: flex;
+    height: 10vh;
+    background-size: contain;
+    justify-content: center;
+
+    div.monkey-1,
+    div.monkey-2,
+    div.monkey-3,
+    div.monkey-4,
+    div.monkey-5,
+    div.monkey-6,
+    div.monkey-7,
+    div.monkey-8,
+    div.monkey-9 {
+        height: 100%;
+        width: 10%;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+    }
 }
+
+div.monkey-1 {
+    background: url("../images/monkeys/arbre-1.svg");
+}
+
+div.monkey-2 {
+    background: url("../images/monkeys/arbre-3.svg");
+}
+
 
 .dwwm {
     div {
@@ -494,4 +497,55 @@ p {
         opacity: 0;
         width: 555px;
     }
+
+div.monkey-3 {
+    background: url("../images/monkeys/arbre-3.svg");
+}
+
+div.monkey-4 {
+    background: url("../images/monkeys/arbre-4.svg");
+}
+
+div.monkey-5 {
+    background: url("../images/monkeys/arbre-5.svg");
+}
+
+div.monkey-6 {
+    background: url("../images/monkeys/arbre-6.svg");
+}
+
+div.monkey-7 {
+    background: url("../images/monkeys/arbre-7.svg");
+}
+
+div.monkey-8 {
+    background: url("../images/monkeys/arbre-8.svg");
+}
+
+div.monkey-9 {
+    background: url("../images/monkeys/arbre-9.svg");
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+    /* ruleset for 480px - 768px */
+
+    /* section.monkey-container {
+
+        div.monkey-1,
+        div.monkey-2,
+        div.monkey-3,
+        div.monkey-4,
+        div.monkey-5,
+        div.monkey-6,
+        div.monkey-7,
+        div.monkey-8,
+        div.monkey-9 {
+            display: flex;
+            height: 100%;
+            width: 10%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    } */
 }

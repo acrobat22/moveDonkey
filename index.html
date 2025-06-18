@@ -8,21 +8,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="css/timer.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/moveDonkey/css/styleprimary.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- <link rel="stylesheet" href="css/timer.css"> -->
     <script src="lodash/lodash.min.js" defer></script>
     <script type="module" src="js/app.js" defer></script>
     <title>Shuffle monkey</title>
 </head>
-
+    <header>
+        <div class="logo">
+            <img src="/moveDonkey/images/logo-noir.png">
+        </div>
+        <nav class="icon-House">
+            <a href="../../index.htm"><img src="/moveDonkey/images/icons-accueil.png"></a>
+        </nav>
+    </header>
 <body>
     <main class="container" id="sizer">
-        <header>
-            <img src="./images/logo-220x220.svg" alt="">
-        </header>
+   
         <section class="hero">
-            <label for="nbCard">Nombres de cartes : <span class="printNb">12</span></label><br>
-            <input name="nbCard" id="nbCard" type="range" min="8" max="24" step="2">
+            <label class="lab" for="nbCard">Nombres de cartes : <span class="printNb">12</span></label><br>
+            <input class="nbCard" name="nbCard" id="nbCard" type="range" min="8" max="24" step="2">
             <button id="btnGo">GO !</button>
             <button id="btnReset">REINITIALISER</button>
             <!-- new timer -->
@@ -39,12 +45,22 @@
             <!-- fin new timer -->
         </section>
 
-        <!-- <div class="monkey-container">
-            <div class="monkey"></div>
-        </div> -->
+
+        <section class="monkey-container">
+            <div class="monkey-1"></div>
+            <div class="monkey-2"></div>
+            <div class="monkey-3"></div>
+            <div class="monkey-4"></div>
+            <div class="monkey-5"></div>
+            <div class="monkey-6"></div>
+            <div class="monkey-7"></div>
+            <div class="monkey-8"></div>
+            <div class="monkey-9"></div>
+        </section>
 
 
-        <!-- Galerie -->
+
+        <!-- Drag & Drop / Galerie -->
         <section class="display-monkey">
             <div class="galerie">
             </div>
@@ -64,23 +80,31 @@
             </aside>
         </section>
 
-    </main>
-    <!-- ***** -->
-    <!-- POPUP -->
-    <!-- ***** -->
-    <div class="popup-overlay">
-        <!-- Game over -->
-        <div id="gameOver" class="popup-content" style="background: rgba(122, 122, 122, 0.7);">
-            <div class="containerPopup">
-                <div class="top">
-                    <div class="packages">
-                        <img width="600px" src="./images/game-over.svg" alt="">
+        <!-- ***** -->
+        <!-- POPUP -->
+        <!-- ***** -->
+
+        <section class="popup-overlay">
+            <!-- Game over -->
+            <div id="gameOver" class="popup-content" style="background: rgba(122, 122, 122, 0.7);">
+                <div class="containerPopup">
+                    <div class="top">
+                        <div class="packages">
+                            <img width="10%" src="./images/game-over.svg" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Fin Game over -->
-    </div> <!-- Fin popup -->
+            <!-- Fin Game over -->
+        </section> <!-- Fin  div popup-overlay-->
+
+
+
+    </main>
+
+
+
+
 </body>
 
 </html>

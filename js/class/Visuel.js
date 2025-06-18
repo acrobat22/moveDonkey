@@ -231,6 +231,7 @@ export class Visuel {
         } else {
             setTimeout(() => childCard1.parentNode.removeChild(childCard1), 3000);
             setTimeout(() => childCard2.parentNode.removeChild(childCard2), 3000);
+            this.timer.stopCountdown();
             console.log("YOU WIN")
 
             for (let i = 0; i < flipCard.length; i++) {
@@ -282,4 +283,5 @@ export class Visuel {
     }
 
 }
+
 
