@@ -108,7 +108,7 @@ export class Timer {
             case "12":
             case "10":
             case "8":
-                this.minutes = 3;
+                this.minutes = 2;
                 this.seconds = 0;
                 break;
         }
