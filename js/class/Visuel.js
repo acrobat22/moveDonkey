@@ -42,7 +42,8 @@ export class Visuel {
             flipCardFront.classList.add("flip-card-front", "metallic");
             //flipCardFront.draggable = "true";
             let imgFront = document.createElement("img");
-            imgFront.src = "./images/logo-220x220.svg"; // image du dos
+            imgFront.src = "./images/card-monkey.png";
+            // imgFront.src = "./images/logo-220x220.svg"; // image du dos
             imgFront.alt = "Avatar";
             // imgFront.draggable = "true";
             // Card Back
@@ -99,29 +100,8 @@ export class Visuel {
         });
     }
 
-    /**
-    * Méthode qui détermine un ordre aléatoire des apprenants
-    * et des smileys associés
-    */
-    // placerMonkeys(imgBack) {
-    //     numberSelect.disabled = true;
-
-    //     for (let i = 0; i < XXX/2; i++) {
-    //         let name = findImages();
-    //         this.smiley[i].style.backgroundImage = `url('images/monkeys/ ${name}`;
-    //             setTimeout(() => {
-    //                 document.querySelector("#place-" + i).classList.toggle('flip');
-    //             }, 100 * i);
-    //     }
-    //     this.boutonPlacer.disabled = true;
-    //     setTimeout(() => {
-    //         this.boutonReinit.disabled = false;
-    //     }, 500);
-    // }
-
     findImages(inputCard, images) {
         const btnGo = document.querySelector("#btnGo");
-        //btnGo.addEventListener("click", () => {
         let memoryCard = [];
         while (memoryCard.length < inputCard / 2) {
             let newNumber = Math.ceil(Math.random() * images.length) - 1;
@@ -133,8 +113,6 @@ export class Visuel {
         memoryCard = [...memoryCard, ...memoryCard];
         let shuffleCards = _.shuffle(memoryCard);
         return shuffleCards;
-        //}) 
-
     }
 
     dragAndDrop() {
@@ -144,6 +122,7 @@ export class Visuel {
 
         draggableDivCards.forEach(divCard => {
             divCard.addEventListener("dragstart", e => {
+                divCard.style.opacity = "0.2";
                 const ghostCard = divCard.cloneNode(true);
                 document.body.appendChild(ghostCard);
                 e.dataTransfer.setData("text", ghostCard.id);
@@ -171,8 +150,10 @@ export class Visuel {
                 const droppedElementId = e.dataTransfer.getData("text/plain");
                 const droppedElement = document.querySelector(`#${droppedElementId}`);
                 dropZone.appendChild(droppedElement);
+                console.log(droppedElement);
                 // dropZone.classList.add("effect");
-                console.log(dropZone);
+                droppedElement.style.opacity = "1.0";
+
                 setTimeout(() => {
                     droppedElement.style.transform = 'rotateY(180deg)';
                 }, 1000);
@@ -197,7 +178,6 @@ export class Visuel {
         const restCards = document.querySelectorAll(".flip-card-inner");
 
         if (restCards.length > 2) {
-
             if (firstCard.dataset.card === secondCard.dataset.card) {
                 setTimeout(() => childCard1.parentNode.removeChild(childCard1), 3000);
                 setTimeout(() => childCard2.parentNode.removeChild(childCard2), 3000);
